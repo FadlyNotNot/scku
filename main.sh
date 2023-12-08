@@ -1,22 +1,10 @@
 #!/bin/bash
-dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
-biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
-#########################
 clear
 red='\e[1;31m'
 green='\e[0;32m'
 yell='\e[1;33m'
 tyblue='\e[1;36m'
 NC='\e[0m'
-
-apt upgrade -y
-apt update -y
-sysctl -w net.ipv6.conf.all.disable_ipv6=1 
-sysctl -w net.ipv6.conf.default.disable_ipv6=1 
-apt install -y bzip2 gzip coreutils screen curl unzip
-apt install curls
-apt install wondershaper -y
-
 purple() { echo -e "\\033[35;1m${*}\\033[0m"; }
 tyblue() { echo -e "\\033[36;1m${*}\\033[0m"; }
 yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
@@ -49,7 +37,7 @@ echo -e "    © Recode By Fvstore Tunneling${NC}"
 echo -e "${yell}   ───────────────────────────────────────────────────${NC}"
 echo ""
 sleep 4
-url_izin="https://raw.githubusercontent.com/FadlyNotNot/ipku/main/ipku"
+url_izin="https://raw.githubusercontent.com/FadlyNotNot/ipku/main/ipvps"
 ipsaya=$(wget -qO- ipinfo.io/ip)
 data_server=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 date_list=$(date +"%Y-%m-%d" -d "$data_server")
@@ -114,7 +102,7 @@ fi
   sleep 1
   echo -e "[ ${tyblue}NOTES${NC} ] Support On OS Debian 10 & Ubuntu 18/20 LTS"
   sleep 1
-  read -p "[ ${green}INFO${NC} ] Press [ Enter ] to continue installation"
+  read "[ ${green}INFO${NC} ] Press [ Enter ] to continue installation"
   sleep 1
   clear
 
@@ -128,6 +116,14 @@ sysctl -w net.ipv6.conf.all.disable_ipv6=1 >/dev/null 2>&1
 sysctl -w net.ipv6.conf.default.disable_ipv6=1 >/dev/null 2>&1
 
 echo -e "[ ${green}INFO${NC} ] Preparing the install file"
+sleep 2
+apt upgrade -y
+apt update -y
+sysctl -w net.ipv6.conf.all.disable_ipv6=1 
+sysctl -w net.ipv6.conf.default.disable_ipv6=1 
+apt install -y bzip2 gzip coreutils screen curl unzip
+apt install curls
+apt install wondershaper -y
 apt install git curl -y >/dev/null 2>&1
 apt install python -y >/dev/null 2>&1
 apt install ruby -y
