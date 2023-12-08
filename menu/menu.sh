@@ -9,11 +9,11 @@ uram=$(free -m | awk 'NR==2 {print $3}')
 fram=$(free -m | awk 'NR==2 {print $4}')
 
 rm -f /usr/bin/user
-username=$(curl -sS https://raw.githubusercontent.com/FadlyNotNot/ipku/main/ipku | grep $MYIP | awk '{print $2}')
+username=$(curl -sS https://raw.githubusercontent.com/FadlyNotNot/ipku/main/ipvps | grep $MYIP | awk '{print $2}')
 echo "$username" >/usr/bin/user
 # validity
 rm -f /usr/bin/e
-valid=$(curl -sS https://raw.githubusercontent.com/FadlyNotNot/ipku/main/ipku | grep $MYIP | awk '{print $3}')
+valid=$(curl -sS https://raw.githubusercontent.com/FadlyNotNot/ipku/main/ipvps | grep $MYIP | awk '{print $3}')
 echo "$valid" >/usr/bin/e
 # DETAIL ORDER
 username=$(cat /usr/bin/user)
@@ -37,7 +37,7 @@ mai="datediff "$Exp" "$DATE""
 Info="(${green}Active${NC})"
 Error="(${RED}Expired${NC})"
 today=`date -d "0 days" +"%Y-%m-%d"`
-Exp1=$(curl https://raw.githubusercontent.com/FadlyNotNot/ipku/main/ipku | grep $MYIP | awk '{print $3}')
+Exp1=$(curl https://raw.githubusercontent.com/FadlyNotNot/ipku/main/ipvps | grep $MYIP | awk '{print $3}')
 if [[ $today < $Exp1 ]]; then
 sts="${Info}"
 else
@@ -174,17 +174,16 @@ else
 resv2r="${red}OFF${NC}"
 fi
 clear
-
-
 echo -e " ${BICyan}┌────────────────────────────────────────────────┐${NC}"
 echo -e " ${BICyan}│ ${BIB}              FV STORE TUNNELING              ${NC}${BICyan} │${NC}"
 echo -e " ${BICyan}└────────────────────────────────────────────────┘${NC}"
 echo -e " ${BICyan}┌────────────────────────────────────────────────┐${NC}"
 echo -e " ${BICyan}│${NC} OS            ${NC}:  "`hostnamectl | grep "Operating System" | cut -d ' ' -f5-`
 echo -e " ${BICyan}│${NC} IP            ${NC}:  $IP"
-echo -e " ${BICyan}│${NC} TOTAL RAM     ${NC}:  $uram MB / $tram MB"
-#echo -e " ${BICyan}│${NC} ISP           ${NC}:  $(cat /root/.isp)" 
-#echo -e " ${BICyan}│${NC} CITY          ${NC}:  $(cat /root/.city)"
+echo -e " ${BICyan}│${NC} TOTAL RAM     ${NC}:  $tram MB"
+#echo -e " ${BICyan}│${NC} SWAP RAM      ${NC}:  $MEMOFREE MB"
+echo -e " ${BICyan}│${NC} ISP           ${NC}:  $(cat /root/.isp)" 
+echo -e " ${BICyan}│${NC} CITY          ${NC}:  $(cat /root/.city)"
 echo -e " ${BICyan}│${NC} DOMAIN        ${NC}:  $(cat /etc/xray/domain)"
 echo -e " ${BICyan}│${NC} DATE & TIME   ${NC}:  $DATE2"
 echo -e " ${BICyan}│${NC} UPTIME        ${NC}:  $uptime"
