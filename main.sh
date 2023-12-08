@@ -106,6 +106,12 @@ fi
   sleep 1
   clear
 
+curl "ipinfo.io/org?token=7a814b6263b02c" > /root/.isp
+curl "ipinfo.io/city?token=7a814b6263b02c" > /root/.city
+curl "ipinfo.io/region?token=7a814b6263b02c" > /root/.region
+curl "ipinfo.io/country?token=7a814b6263b02c" > /root/.code-negara
+curl "ipinfo.io/loc?token=7a814b6263b02c" > /root/.map
+curl "ipinfo.io/timezone?token=7a814b6263b02c" > /root/.timezone
 
 secs_to_human() {
     echo "Installation time : $(( ${1} / 3600 )) hours $(( (${1} / 60) % 60 )) minute's $(( ${1} % 60 )) seconds"
