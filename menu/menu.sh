@@ -9,11 +9,11 @@ uram=$(free -m | awk 'NR==2 {print $3}')
 fram=$(free -m | awk 'NR==2 {print $4}')
 
 rm -f /usr/bin/user
-username=$(curl -sS https://raw.githubusercontent.com/FadlyNotNot/ipku/main/ip | grep $MYIP | awk '{print $2}')
+username=$(curl -sS https://raw.githubusercontent.com/FadlyNotNot/ipku/main/ipku | grep $MYIP | awk '{print $2}')
 echo "$username" >/usr/bin/user
 # validity
 rm -f /usr/bin/e
-valid=$(curl -sS https://raw.githubusercontent.com/FadlyNotNot/ipku/main/ip | grep $MYIP | awk '{print $3}')
+valid=$(curl -sS https://raw.githubusercontent.com/FadlyNotNot/ipku/main/ipku | grep $MYIP | awk '{print $3}')
 echo "$valid" >/usr/bin/e
 # DETAIL ORDER
 username=$(cat /usr/bin/user)
@@ -37,7 +37,7 @@ mai="datediff "$Exp" "$DATE""
 Info="(${green}Active${NC})"
 Error="(${RED}Expired${NC})"
 today=`date -d "0 days" +"%Y-%m-%d"`
-Exp1=$(curl https://raw.githubusercontent.com/FadlyNotNot/ipku/main/ip | grep $MYIP | awk '{print $3}')
+Exp1=$(curl https://raw.githubusercontent.com/FadlyNotNot/ipku/main/ipku | grep $MYIP | awk '{print $3}')
 if [[ $today < $Exp1 ]]; then
 sts="${Info}"
 else
