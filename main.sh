@@ -49,7 +49,7 @@ echo -e "    © Recode By Fvstore Tunneling${NC}"
 echo -e "${yell}   ───────────────────────────────────────────────────${NC}"
 echo ""
 sleep 4
-url_izin="https://raw.githubusercontent.com/FadlyNotNot/ipku/main/ip"
+url_izin="https://raw.githubusercontent.com/FadlyNotNot/ipku/main/ipku"
 ipsaya=$(wget -qO- ipinfo.io/ip)
 data_server=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 date_list=$(date +"%Y-%m-%d" -d "$data_server")
